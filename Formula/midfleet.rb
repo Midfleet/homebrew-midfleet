@@ -1,9 +1,11 @@
+require "json"
+
 class Midfleet < Formula
   desc "Turn any AI coding assistant into a dispatchable, nudge-able agent"
   homepage "https://midfleet.io"
-  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.11.tgz"
-  version "0.4.11"
-  sha256 "83f9a192c7e5f7246c9925fa098611f1abccc30dc2515f7d558f8ed2e8a9cbf0"
+  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.13.tgz"
+  version "0.4.13"
+  sha256 "60f2403c652ac97fee121e264abe80cd1c8f0a25715bd705d957ec4effe50b88"
   license "MIT"
 
   depends_on "node"
@@ -30,5 +32,18 @@ class Midfleet < Formula
     assert_match "Usage: midfleet", shell_output("#{bin}/midfleet --help")
     assert_match "Sign in to Midfleet", shell_output("#{bin}/midfleet login --help")
     assert_match "Show the signed-in Midfleet user profile", shell_output("#{bin}/midfleet profile --help")
+    assert_match "Usage: midfleet workspace", shell_output("#{bin}/midfleet workspace --help")
+
+    version_json = shell_output("#{bin}/midfleet version --json")
+    version_data = JSON.parse(version_json)
+    assert_equal version.to_s, version_data["version"]
+    assert_equal "midfleet", version_data["cli"]
+
+    update_json = shell_output("#{bin}/midfleet update-check --json")
+    update_data = JSON.parse(update_json)
+    assert update_data["installed"].is_a?(String)
+    assert(update_data["installed"].match(/^\d+\.\d+\.\d+/))
+    assert [true, false].include?(update_data["upToDate"])
+    assert update_data["installCommand"].is_a?(String)
   end
 end
