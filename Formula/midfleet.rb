@@ -3,9 +3,9 @@ require "json"
 class Midfleet < Formula
   desc "Turn any AI coding assistant into a dispatchable, nudge-able agent"
   homepage "https://midfleet.io"
-  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.16.tgz"
-  version "0.4.16"
-  sha256 "3089e184b4ef88a3268f2f61fa2f4eb052db7b7c6ca413456a9646e00b05e43b"
+  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.17.tgz"
+  version "0.4.17"
+  sha256 "2a45ae928d3590ace05bb5343a3f12f02c57783729ea89bc390118acdd2c8dac"
   license "MIT"
 
   depends_on "node"
@@ -23,7 +23,7 @@ class Midfleet < Formula
         midfleet profile
 
       Then spawn a worker with:
-        midfleet start --name my-agent --worker --team-id <team-id>
+        midfleet start --name my-agent --worker --project <project-code> --team-id <team-id>
     EOS
   end
 
