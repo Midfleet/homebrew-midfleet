@@ -3,9 +3,9 @@ require "json"
 class Midfleet < Formula
   desc "Turn any AI coding assistant into a dispatchable, nudge-able agent"
   homepage "https://midfleet.io"
-  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.33.tgz"
-  version "0.4.33"
-  sha256 "b5e965026d571c4d27bc92cd3394da582d1214f565cb0de9a25f349464868c52"
+  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.34.tgz"
+  version "0.4.34"
+  sha256 "0336bbff76a24069a0b1bb980f91efc3f5eebf2e63b083905b145894cfed8f3c"
   license "MIT"
 
   depends_on "node"
@@ -33,6 +33,7 @@ class Midfleet < Formula
     assert_match "Sign in to Midfleet", shell_output("#{bin}/midfleet login --help")
     assert_match "Show the signed-in Midfleet user profile", shell_output("#{bin}/midfleet profile --help")
     assert_match "Usage: midfleet workspace", shell_output("#{bin}/midfleet workspace --help")
+    assert_match "Start Epic refinement", shell_output("#{bin}/midfleet epic refinement --help")
 
     version_json = shell_output("#{bin}/midfleet version --json")
     version_data = JSON.parse(version_json)
