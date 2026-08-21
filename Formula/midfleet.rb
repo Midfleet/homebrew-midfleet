@@ -3,9 +3,9 @@ require "json"
 class Midfleet < Formula
   desc "Turn any AI coding assistant into a dispatchable, nudge-able agent"
   homepage "https://midfleet.io"
-  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.55.tgz"
-  version "0.4.55"
-  sha256 "a7bd72f8b830509e1aa608d1136a11ea98472c811e0f033a6082caca3721ade5"
+  url "https://registry.npmjs.org/@midfleet/agent/-/agent-0.4.56.tgz"
+  version "0.4.56"
+  sha256 "753144ce09016be32e6b364b303af61baf9c7fd967c0a6eea68229f2913d529a"
   license "MIT"
 
   depends_on "node"
